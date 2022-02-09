@@ -13,6 +13,10 @@ socket.on('boardcast_submit_chat', (data) => {
   drawNewChat(`${username}: ${chat}`);
 });
 
+socket.on('disconnect_user', (username => {
+  drawNewChat(`${username}: bye...0`);
+}));
+
 function handleSubmit(event) {
   event.preventDefault();
   const value = event.target.elements[0].value;
@@ -32,6 +36,7 @@ function helloUser() {
   socket.on('hello_user', (data) => {
     console.log(data);
   });
+  console.log('1q23');
 }
 
 function drawHelloStranger(username) {
